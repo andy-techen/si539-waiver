@@ -33,6 +33,7 @@ function skipVideo() {
 		video.currentTime += 15;
 	}
 	console.log(video.currentTime);
+	video.play();
 }
 
 function toggleMute() {
@@ -41,7 +42,7 @@ function toggleMute() {
 }
 
 function handleVolume() {
-	video.volume = video.volume * slider.value * 0.01;
+	video.volume = slider.value * 0.01;
 	volume.textContent = slider.value;
 }
 
@@ -51,6 +52,6 @@ slower.addEventListener("click", slowerVideo);
 faster.addEventListener("click", fasterVideo);
 skip.addEventListener("click", skipVideo);
 mute.addEventListener("click", toggleMute);
-slider.addEventListener("mousemove", handleVolume);
+slider.addEventListener("change", handleVolume);
 vintage.addEventListener("click", () => video.classList.add("oldSchool"));
 orig.addEventListener("click", () => video.classList.remove("oldSchool"));
