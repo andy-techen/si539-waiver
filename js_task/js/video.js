@@ -21,7 +21,7 @@ function slowerVideo() {
 }
 
 function fasterVideo() {
-	video.playbackRate = video.playbackRate * 1.05;
+	video.playbackRate = video.playbackRate * (1 / 0.95);
 	console.log(video.playbackRate);
 }
 
