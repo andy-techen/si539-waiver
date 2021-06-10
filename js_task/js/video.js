@@ -11,28 +11,36 @@ const vintage = document.querySelector('#vintage');
 const orig = document.querySelector('#orig');
 
 function playVideo() {
+	console.log("Play Video");
 	video.play();
-	volume.textContent = slider.value;
+	volume.textContent = slider.value + '%';
+}
+
+function pauseVideo() {
+	console.log("Pause Video");
+	video.pause();
 }
 
 function slowerVideo() {
 	video.playbackRate = video.playbackRate * 0.95;
-	console.log(video.playbackRate);
+	console.log('New speed is ' + video.playbackRate);
 }
 
 function fasterVideo() {
 	video.playbackRate = video.playbackRate * (1 / 0.95);
-	console.log(video.playbackRate);
+	console.log('New speed is ' + video.playbackRate);
 }
 
 function skipVideo() {
+	console.log('Original location ' + video.currentTime);
 	const duration = video.duration;
 	if (video.currentTime + 15 > duration) {
 		video.currentTime = 0;
+		console.log('Going back to beginning');
 	} else {
 		video.currentTime += 15;
 	}
-	console.log(video.currentTime);
+	console.log('New location ' + video.currentTime);
 	video.play();
 }
 
@@ -43,11 +51,12 @@ function toggleMute() {
 
 function handleVolume() {
 	video.volume = slider.value * 0.01;
-	volume.textContent = slider.value;
+	console.log(video.volume);
+	volume.textContent = slider.value + '%';
 }
 
 play.addEventListener("click", playVideo);
-pause.addEventListener("click", () => video.pause());
+pause.addEventListener("click", pauseVideo);
 slower.addEventListener("click", slowerVideo);
 faster.addEventListener("click", fasterVideo);
 skip.addEventListener("click", skipVideo);
