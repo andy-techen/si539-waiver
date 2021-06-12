@@ -3,3 +3,103 @@
 /*Some selectors you may need include are
 a.skip, header, .nav_links, .container,
 .intro, html, .text-block, etc.*/
+a.skip {
+    position: absolute;
+    top: -40px;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header img {
+    animation: grow 1s;
+}
+
+.nav_links {
+    display: flex;
+    flex-direction: column;
+}
+
+.nav_links a:focus,
+.nav_links a:hover {
+    color: #50C7C7;
+    text-decoration: underline dotted;
+}
+
+.nav_links li {
+    padding-bottom: 5px;
+}
+
+.container {
+    display: grid;
+    grid: repeat(5, auto) / 1fr 3fr 1fr;
+    grid-row-gap: 15px;
+    align-items: center;
+}
+
+.container div[class*="-image"] {
+    grid-column: 1 / span 3;
+    /* width: 100%; */
+    z-index: -1;
+}
+
+.container img {
+    max-height: 700px;
+    width: 100%;
+}
+
+.intro {
+    color: white;
+}
+
+.intro p {
+    padding: 100px 0;
+}
+
+.text-block,
+.intro {
+    grid-column: 2 / span 1;
+}
+
+.container div:nth-of-type(1),
+.container div:nth-of-type(2) {
+    grid-row: 1;
+}
+
+.container div:nth-of-type(3),
+.container div:nth-of-type(4) {
+    grid-row: 2;
+}
+
+.container div:nth-of-type(5),
+.container div:nth-of-type(6) {
+    grid-row: 3;
+}
+
+.container div:nth-of-type(7),
+.container div:nth-of-type(8) {
+    grid-row: 4;
+}
+
+.container div:nth-of-type(9),
+.container div:nth-of-type(10) {
+    grid-row: 5;
+}
+
+footer {
+    color: white;
+}
+
+/* keyframes */
+@keyframes grow {
+    0% {
+        width: 0;
+    }
+
+    100% {
+        width: 50px;
+    }
+}
