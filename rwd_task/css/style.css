@@ -8,6 +8,10 @@ a.skip {
     top: -40px;
 }
 
+a.skip:focus {
+    top: 0;
+}
+
 header {
     display: flex;
     flex-direction: column;
@@ -33,59 +37,67 @@ header img {
     padding-bottom: 5px;
 }
 
+/* container grid */
 .container {
     display: grid;
-    grid: repeat(5, auto) / 1fr 3fr 1fr;
+    grid-template-rows: repeat(5, auto);
+    grid-template-columns: 1fr 3fr 1fr;
     grid-row-gap: 15px;
     align-items: center;
+    overflow: hidden;
 }
 
-.container div[class*="-image"] {
-    grid-column: 1 / span 3;
-    /* width: 100%; */
-    z-index: -1;
+.about-image,
+.clients-image,
+.method-image,
+.contact-image {
+    grid-column: 1 / -1;
 }
 
 .container img {
     max-height: 700px;
-    width: 100%;
 }
 
 .intro {
     color: white;
+    background-image: url(../images/header.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    height: 400px;
+    grid-column: 1 / -1;
 }
 
 .intro p {
     padding: 100px 0;
 }
 
-.text-block,
-.intro {
-    grid-column: 2 / span 1;
+.text-block {
+    grid-column: 2 / 3;
 }
 
-.container div:nth-of-type(1),
-.container div:nth-of-type(2) {
+.container div:nth-of-type(1) {
     grid-row: 1;
 }
 
-.container div:nth-of-type(3),
-.container div:nth-of-type(4) {
+.container div:nth-of-type(2),
+.container div:nth-of-type(3) {
     grid-row: 2;
 }
 
-.container div:nth-of-type(5),
-.container div:nth-of-type(6) {
+.container div:nth-of-type(4),
+.container div:nth-of-type(5) {
     grid-row: 3;
 }
 
-.container div:nth-of-type(7),
-.container div:nth-of-type(8) {
+.container div:nth-of-type(6),
+.container div:nth-of-type(7) {
     grid-row: 4;
 }
 
-.container div:nth-of-type(9),
-.container div:nth-of-type(10) {
+.container div:nth-of-type(8),
+.container div:nth-of-type(9) {
     grid-row: 5;
 }
 
@@ -103,3 +115,36 @@ footer {
         width: 50px;
     }
 }
+
+/* media queries */
+@media only screen and (min-width: 750px) {
+    .nav_links {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .nav_links li {
+        padding: 10px;
+    }
+
+    .container {
+        grid-template-rows: repeat(5, 400px);
+        grid-template-columns: 50px auto 500px auto 50px;
+    }
+
+    .about,
+    .clients,
+    .method-image,
+    .contact-image {
+        grid-column: 3 / 5;
+    }
+
+    .about-image,
+    .clients-image,
+    .method,
+    .contact {
+        grid-column: 2 / 4;
+    }
+}
+
+@media only screen and (max-width: 1125px) {}
