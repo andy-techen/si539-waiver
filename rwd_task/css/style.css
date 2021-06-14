@@ -40,21 +40,9 @@ header img {
 /* container grid */
 .container {
     display: grid;
-    grid-template-rows: repeat(5, auto);
     grid-template-columns: 1fr 3fr 1fr;
+    grid-template-rows: repeat(5, auto);
     grid-row-gap: 15px;
-}
-
-.about-image,
-.clients-image,
-.method-image,
-.contact-image {
-    grid-column: 1 / -1;
-    overflow: hidden;
-}
-
-.container img {
-    max-height: 700px;
 }
 
 .intro {
@@ -71,6 +59,18 @@ header img {
 
 .intro p {
     padding: 100px 0;
+}
+
+.about-image,
+.clients-image,
+.method-image,
+.contact-image {
+    grid-column: 1 / -1;
+    overflow: hidden;
+}
+
+.container img {
+    max-height: 700px;
 }
 
 .text-block {
@@ -102,36 +102,9 @@ footer {
     color: white;
 }
 
-/* keyframes */
-@keyframes grow {
-    0% {
-        width: 0;
-    }
-
-    100% {
-        width: 50px;
-    }
-}
-
-@keyframes grow-move {
-    0% {
-        width: 50px;
-    }
-
-    50% {
-        width: 150px;
-        margin-left: 450px;
-    }
-
-    100% {
-        width: 50px;
-    }
-}
-
 /* media queries */
 @media screen and (min-width: 750px) {
     .nav_links {
-        display: flex;
         flex-direction: row;
     }
 
@@ -140,8 +113,8 @@ footer {
     }
 
     .container {
-        grid-template-rows: repeat(5, 400px);
         grid-template-columns: 50px auto 500px auto 50px;
+        grid-template-rows: repeat(5, 400px);
     }
 
     .about,
@@ -206,7 +179,7 @@ footer {
 
     .contact {
         grid-column: 5;
-        grid-row: 3; 
+        grid-row: 3;
     }
 }
 
@@ -226,11 +199,16 @@ footer {
         -webkit-print-color-adjust: exact;
     }
 
-    .nav_links {
-        flex-direction: row;
+    nav {
+        width: 90%;
     }
 
-    img {
+    .nav_links {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .container img {
         display: none;
     }
 
@@ -241,5 +219,31 @@ footer {
 
     .text-block {
         min-height: initial;
+    }
+}
+
+/* keyframes */
+@keyframes grow {
+    0% {
+        width: 0;
+    }
+
+    100% {
+        width: 50px;
+    }
+}
+
+@keyframes grow-move {
+    0% {
+        width: 50px;
+    }
+
+    50% {
+        width: 150px;
+        margin-left: 450px;
+    }
+
+    100% {
+        width: 50px;
     }
 }
